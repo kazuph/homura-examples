@@ -2,6 +2,13 @@ node_modules/
 *.log
 .env
 
+# Bundler local config
+.bundle/
+
+# Build artifacts
+*.gem
+worker.entrypoint.mjs
+
 # sinatra-app exclusions
 sinatra-app/db/*.sqlite3
 sinatra-app/db/*.sqlite3-journal
