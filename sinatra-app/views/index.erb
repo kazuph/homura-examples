@@ -1,0 +1,42 @@
+<form class="input-form" id="todoForm">
+  <input type="text" name="text" id="todoInput" placeholder="What needs to be done?" autofocus required>
+  <button type="submit">Add</button>
+</form>
+
+<ul class="todo-list">
+  <% if @todos.empty? %>
+    <li class="empty">No todos yet. Add one above!</li>
+  <% else %>
+    <% @todos.each do |todo| %>
+      <li class="todo-item <%= 'completed' if todo[:completed] %>">
+        <span class="todo-text"><%= todo[:text] %></span>
+        <div class="todo-actions">
+          <form method="post" action="/toggle/<%= todo[:id] %>" style="display:inline">
+            <button type="submit" class="btn-toggle"><%= todo[:completed] ? '↩' : '✓' %></button>
+          </form>
+          <form method="post" action="/delete/<%= todo[:id] %>" style="display:inline">
+            <button type="submit" class="btn-delete">✕</button>
+          </form>
+        </div>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<script>
+document.getElementById('todoForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const input = document.getElementById('todoInput');
+  const text = input.value.trim();
+  if (!text) return;
+
+  await fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text })
+  });
+
+  input.value = '';
+  window.location.reload();
+});
+</script>

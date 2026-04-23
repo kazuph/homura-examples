@@ -1,0 +1,16 @@
+node_modules/
+*.log
+.env
+
+# sinatra-app exclusions
+sinatra-app/db/*.sqlite3
+sinatra-app/db/*.sqlite3-journal
+sinatra-app/vendor/bundle/
+sinatra-app/Gemfile.lock
+
+# homura-app exclusions
+homura-app/build/
+homura-app/.wrangler/
+homura-app/vendor/bundle/
+homura-app/Gemfile.lock
+homura-app/node_modules/

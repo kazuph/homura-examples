@@ -1,0 +1,9 @@
+# frozen_string_literal: true
+source 'https://rubygems.org'
+
+ruby '>= 3.4.0'
+
+gem 'opal-homura', '= 1.8.3.rc1.2', require: 'opal'
+gem 'homura-runtime', path: '/Users/kazuph/src/github.com/kazuph/homurabi/gems/homura-runtime'
+gem 'sinatra-homura', path: '/Users/kazuph/src/github.com/kazuph/homurabi/gems/sinatra-homura'
+gem 'sequel-d1', path: '/Users/kazuph/src/github.com/kazuph/homurabi/gems/sequel-d1'
